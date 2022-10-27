@@ -9,7 +9,7 @@ const pokemonRoutes = require("./routes/pokemon");
 
 mongoose
   .connect(
-    "mongodb+srv://root:Felina89!@cluster0.fpv4tku.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv:",
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => console.log("Connexion à MongoDB réussie !"))
