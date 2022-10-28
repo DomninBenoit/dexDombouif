@@ -7,10 +7,15 @@ const mongoose = require("mongoose");
 
 const pokemonRoutes = require("./routes/pokemon");
 
+const mongoDB = "mongodb+srv:";
 mongoose
   .connect(
-    "mongodb+srv://root:Felina89!@cluster0.fpv4tku.mongodb.net/?retryWrites=true&w=majority",
-    { useNewUrlParser: true, useUnifiedTopology: true }
+    mongoDB,
+
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
   )
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch(() => console.log("Connexion à MongoDB échouée !"));
