@@ -7,18 +7,34 @@ const apiUrl = process.env.REACT_APP_API_URL;
  */
 async function customFetch(url, options) {
   try {
-    const response = await fetch(`${apiUrl}/api/pokemon${url}`);
+    const response = await fetch(`${apiUrl}/api/pokemon${url}`, options);
     if (response.status < 100 && response.status >= 300) {
       return new Error("Problème d'accès aux données de l'API");
     }
     return response.json();
   } catch {
-    console.log("test");
     throw new Error("Problème d'accès aux données de l'API");
   }
 }
 
 export async function getAllPokemons() {
-  const response = await customFetch("/");
+  const response = await customFetch("/", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return response;
+}
+
+export async function putPokemon(id, payload) {
+  const response = await customFetch(`/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+  console.log(id, response);
   return response;
 }

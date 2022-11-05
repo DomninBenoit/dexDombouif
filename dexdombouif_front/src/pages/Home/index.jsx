@@ -10,7 +10,6 @@ const Home = () => {
   useEffect(() => {
     getAllPokemons()
       .then((response) => {
-        console.log(response);
         dispatch(setPokemon(response));
       })
       .catch((error) => {

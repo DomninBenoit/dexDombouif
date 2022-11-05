@@ -1,3 +1,1 @@
-export const getPokemon = (state) => ({
-  pokemon: state,
-});
+export const getPokemon = (state) => state.pokemons;
