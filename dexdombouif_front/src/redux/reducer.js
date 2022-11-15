@@ -14,7 +14,7 @@ function reducer(state = initialState, action) {
   if (action.type === "UPDATE_POKEMON") {
     return produce(state, (draft) => {
       const index = draft.pokemons.findIndex(
-        (pokemon) => pokemon.id === action.id
+        (pokemon) => pokemon._id === action.id
       );
       draft.pokemons[index] = {
         ...draft.pokemons[index],

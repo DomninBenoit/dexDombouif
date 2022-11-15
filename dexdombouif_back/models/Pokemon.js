@@ -10,9 +10,11 @@ const pokemonSchema = mongoose.Schema({
   chroma: { type: String, required: false },
   date: { type: String, required: false },
   gen: { type: String, required: false },
-  type: { type: String, required: false },
+  type1: { type: String, required: false },
+  type2: { type: String, required: false },
   ball: { type: String, required: false },
   leg: { type: String, required: false },
+  image: { type: String, required: false },
 });
 
 module.exports = mongoose.model("Pokemon", pokemonSchema);

@@ -1,0 +1,23 @@
+.cadre {
+  position: relative;
+  text-align: center;
+  height: 342px;
+  width: 245px;
+  background-color: #d8c706;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  .card {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 332px;
+    width: 235px;
+    background-color: gray;
+    align-content: center;
+  }
+  .buttons {
+    position: absolute;
+    bottom: 10px;
+    left: 20%;
+  }
+}

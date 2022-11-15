@@ -17,8 +17,29 @@ async function customFetch(url, options) {
   }
 }
 
+export async function postPokemon(newPokemon) {
+  const response = await customFetch("/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ newPokemon }),
+  });
+  return response;
+}
+
 export async function getAllPokemons() {
   const response = await customFetch("/", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return response;
+}
+
+export async function getOnePokemon(id) {
+  const response = await customFetch(`/${id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -35,6 +56,5 @@ export async function putPokemon(id, payload) {
     },
     body: JSON.stringify(payload),
   });
-  console.log(id, response);
   return response;
 }
