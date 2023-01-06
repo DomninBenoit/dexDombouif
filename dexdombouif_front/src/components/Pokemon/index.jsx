@@ -10,7 +10,7 @@ const Pokemon = () => {
   return (
     <div className="cardPokemon">
       {pokemons.map((pokemon) =>
-        pokemon.id < 3 ? <ModifyPokemon pokemon={pokemon} /> : <></>
+        pokemon.id < 10 ? <ModifyPokemon pokemon={pokemon} /> : <></>
       )}
     </div>
   );

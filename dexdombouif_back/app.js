@@ -2,25 +2,22 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
+const path = require("path");
 
 const mongoose = require("mongoose");
 
 const pokemonRoutes = require("./routes/pokemon");
 
-const mongoDB = "mongodb+srv:";
+const mongoDB =
+  "mongodb+srv://root:root@cluster0.fezpes2.mongodb.net/?retryWrites=true&w=majority";
 mongoose
   .connect(
-<<<<<<< HEAD
     mongoDB,
 
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }
-=======
-    "mongodb+srv:",
-    { useNewUrlParser: true, useUnifiedTopology: true }
->>>>>>> 61229c8d994001a2e310e61ebc1c9fcc4a10ab02
   )
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch(() => console.log("Connexion à MongoDB échouée !"));
@@ -31,5 +28,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/pokemon", pokemonRoutes);
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 module.exports = app;

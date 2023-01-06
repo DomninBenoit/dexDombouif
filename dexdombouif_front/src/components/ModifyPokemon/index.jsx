@@ -7,27 +7,18 @@ import { putPokemon, getOnePokemon } from "../../services/services";
 import "./style.scss";
 
 const Pokemon = (pokemons) => {
+  const optionsBall = ["pokéball", "superball", "hyperball"];
   const [displayPokemon, setDisplayPokemon] = useState(false);
   const dispatch = useDispatch();
   const handleSubmit = (event, id) => {
-    console.log(event.target["image"].value);
-    const pokemon = {
-      ball: event.target["ball"].value,
-      chroma: event.target["chroma"].value,
-      method: event.target["method"].value,
-      sex: event.target["sex"].value,
-      score: event.target["score"].value,
-      game: event.target["game"].value,
-      date: event.target["date"].value,
-      type1: event.target["type1"].value,
-      type2: event.target["type2"].value,
-      image: event.target["image"].value,
-    };
+    console.log(event.target["image"].files[0]);
+    const pokemon = new FormData(event.target);
 
     putPokemon(id, pokemon)
       .then(() => {
         getOnePokemon(id)
           .then((response) => {
+            console.log(response);
             dispatch(updatePokemon(id, response));
           })
           .catch((error) => {
@@ -51,31 +42,65 @@ const Pokemon = (pokemons) => {
   return (
     <>
       {displayPokemon === false ? (
-        <div className="cadre">
-          <div className="card">
-            <p className="identity">
-              {pokemons.pokemon.id} {pokemons.pokemon.name}{" "}
-            </p>
-            <img src={pokemons.pokemon.image} />
-            <p>
-              {pokemons.pokemon.ball}
-              {pokemons.pokemon.chroma}
-              {pokemons.pokemon.method}
-            </p>
-            <div className="buttons">
-              <button
-                className="editButton"
-                type="button"
-                onClick={openModifyPokemon}
-              >
-                modify
-              </button>
-              <button className="editButton" type="button">
-                supprimer
-              </button>
+        pokemons.pokemon.type2 ? (
+          <div className="cadre ">
+            <div className="card">
+              <div className={pokemons.pokemon.type1}>
+                <div className={pokemons.pokemon.type2} id="demi" />
+                <p className="identity">
+                  {pokemons.pokemon.id} {pokemons.pokemon.name}{" "}
+                </p>
+                <img className="imgPokemon" src={pokemons.pokemon.image} />
+                <p className="textBody">
+                  {pokemons.pokemon.ball}
+                  {pokemons.pokemon.chroma}
+                  {pokemons.pokemon.method}
+                </p>
+
+                <div className="buttons">
+                  <button
+                    className="editButton"
+                    type="button"
+                    onClick={openModifyPokemon}
+                  >
+                    modify
+                  </button>
+                  <button className="editButton" type="button">
+                    supprimer
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="cadre">
+            <div className="card">
+              <div className={pokemons.pokemon.type1}>
+                <p className="identity">
+                  {pokemons.pokemon.id} {pokemons.pokemon.name}{" "}
+                </p>
+                <img className="imgPokemon" src={pokemons.pokemon.image} />
+                <p className="textBody">
+                  {pokemons.pokemon.ball}
+                  {pokemons.pokemon.chroma}
+                  {pokemons.pokemon.method}
+                </p>
+                <div className="buttons">
+                  <button
+                    className="editButton"
+                    type="button"
+                    onClick={openModifyPokemon}
+                  >
+                    modify
+                  </button>
+                  <button className="editButton" type="button">
+                    supprimer
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
       ) : (
         <form
           className="formModifyPokemon"
@@ -85,11 +110,13 @@ const Pokemon = (pokemons) => {
             <Input
               type="text"
               name="ball"
+              options={optionsBall}
               classname="input-profile"
               placeholder="ball"
             />
             <Input
               type="text"
+              value={pokemons.chroma}
               name="chroma"
               classname="input-profile"
               placeholder="chroma"

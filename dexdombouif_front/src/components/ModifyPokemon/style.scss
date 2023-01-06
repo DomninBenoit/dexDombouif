@@ -8,16 +8,166 @@
   border-radius: 5px;
   .card {
     position: absolute;
-    top: 5px;
-    right: 5px;
-    height: 332px;
-    width: 235px;
-    background-color: gray;
+    top: 10px;
+    right: 10px;
+    height: 322px;
+    width: 225px;
     align-content: center;
+    border-radius: 5px;
+    #demi {
+      border-radius: 5px;
+      width: 50%;
+    }
+    .identity {
+      position: absolute;
+      top: 0;
+      text-align: left;
+      margin: 5px 0 0 10px;
+      font-size: 20px;
+      font-weight: 600;
+      text-shadow: 1px 1px #ffffff;
+    }
+    .imgPokemon {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      width: 150px;
+    }
+    .textBody {
+      position: absolute;
+      top: 200px;
+      left: 5px;
+    }
   }
   .buttons {
     position: absolute;
     bottom: 10px;
     left: 20%;
   }
+}
+
+.Plante {
+  height: 322px;
+  width: 225px;
+  background-color: #77c74f;
+  border-radius: 5px;
+}
+
+.Poison {
+  height: 322px;
+  width: 225px;
+  background-color: #934b91;
+  border-radius: 5px;
+}
+
+.Vol {
+  height: 322px;
+  width: 225px;
+  background-color: #a78ff0;
+  border-radius: 5px;
+}
+
+.Combat {
+  height: 322px;
+  width: 225px;
+  background-color: #ba3028;
+  border-radius: 5px;
+}
+
+.Dragon {
+  height: 322px;
+  width: 225px;
+  background-color: #6e38f4;
+  border-radius: 5px;
+}
+
+.Glace {
+  height: 322px;
+  width: 225px;
+  background-color: #96d4d5;
+  border-radius: 5px;
+}
+
+.Sol {
+  height: 322px;
+  width: 225px;
+  background-color: #e0be67;
+  border-radius: 5px;
+}
+
+.Roche {
+  height: 322px;
+  width: 225px;
+  background-color: #b59c37;
+  border-radius: 5px;
+}
+
+.Acier {
+  height: 322px;
+  width: 225px;
+  background-color: #b6b6ce;
+  border-radius: 5px;
+}
+
+.Insecte {
+  height: 322px;
+  width: 225px;
+  background-color: #a6b61e;
+  border-radius: 5px;
+}
+
+.Normal {
+  height: 322px;
+  width: 225px;
+  background-color: #aca775;
+  border-radius: 5px;
+}
+
+.Tenebre {
+  height: 322px;
+  width: 225px;
+  background-color: #766657;
+  border-radius: 5px;
+}
+
+.Spectre {
+  height: 322px;
+  width: 225px;
+  background-color: #6e5791;
+  border-radius: 5px;
+}
+
+.Fee {
+  height: 322px;
+  width: 225px;
+  background-color: #e6a5e6;
+  border-radius: 5px;
+}
+
+.Feu {
+  height: 322px;
+  width: 225px;
+  background-color: #ef8030;
+  border-radius: 5px;
+}
+
+.Electrik {
+  height: 322px;
+  width: 225px;
+  background-color: #f5cf32;
+  border-radius: 5px;
+}
+
+.Eau {
+  height: 322px;
+  width: 225px;
+  background-color: #678fef;
+  border-radius: 5px;
+}
+
+.Psy {
+  height: 322px;
+  width: 225px;
+  background-color: #f65786;
+  border-radius: 5px;
 }

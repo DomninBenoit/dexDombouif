@@ -20,9 +20,6 @@ async function customFetch(url, options) {
 export async function postPokemon(newPokemon) {
   const response = await customFetch("/", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
     body: JSON.stringify({ newPokemon }),
   });
   return response;
@@ -51,10 +48,7 @@ export async function getOnePokemon(id) {
 export async function putPokemon(id, payload) {
   const response = await customFetch(`/${id}`, {
     method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
+    body: payload,
   });
   return response;
 }

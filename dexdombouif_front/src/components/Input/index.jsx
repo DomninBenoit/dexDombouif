@@ -1,12 +1,37 @@
 import React from "react";
 
-const Input = ({ label, type, name, classname, placeholder }) => {
+const Input = ({
+  label,
+  type,
+  name,
+  classname,
+  placeholder,
+  value,
+  options,
+}) => {
   return (
     <>
-      {type !== "checkbox" ? (
+      {name === "ball" ? (
+        <div className={classname}>
+          <label>
+            {label}
+            <select type={type} name={name} id={name} placeholder={placeholder}>
+              {options.map((option) => (
+                <option>{option}</option>
+              ))}
+            </select>
+          </label>
+        </div>
+      ) : type !== "checkbox" ? (
         <div className={classname}>
           <label htmlFor={name}>{label}</label>
-          <input type={type} name={name} id={name} placeholder={placeholder} />
+          <input
+            type={type}
+            name={name}
+            id={name}
+            placeholder={placeholder}
+            value={value}
+          />
         </div>
       ) : (
         <div className={classname}>

@@ -1,14 +1,14 @@
 const Pokemon = require("../models/Pokemon");
 
 exports.createPokemon = (req, res, next) => {
-  const pokemonObject = JSON.parse(req.body.pokemon);
+  const pokemonObject = req.body;
   delete pokemonObject._id;
+
   const pokemon = new Pokemon({
     ...pokemonObject,
-    imageUrl: `${req.protocol}://${req.get("host")}/images/${
-      req.file.filename
-    }`,
+    image: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`,
   });
+  console.log(pokemon);
   pokemon
     .save()
     .then(() => {
@@ -45,8 +45,8 @@ exports.putPokemon = (req, res, next) => {
   console.log(req.file);
   const pokemonObject = req.file
     ? {
-        ...req.body.Pokemon,
-        imageUrl: `${req.protocol}://${req.get("host")}/images/${
+        ...req.body,
+        image: `${req.protocol}://${req.get("host")}/images/${
           req.file.filename
         }`,
       }
